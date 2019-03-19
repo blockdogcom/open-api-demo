@@ -3,6 +3,7 @@ import time
 
 import pytz
 import requests
+from eospy.keys import EOSKey
 
 from eos.cleos import MyCleos
 
@@ -40,7 +41,7 @@ trx = {
     'expiration': str((dt.datetime.utcnow() + dt.timedelta(seconds=60)).replace(tzinfo=pytz.UTC))
 }
 
-resp = ce.push_transaction(trx, PRIVATE_KEY, broadcast=True)
+resp = ce.push_transaction(trx, EOSKey(PRIVATE_KEY), broadcast=True)
 transaction_id = resp['transaction_id']
 print('trx_id:', resp['transaction_id'])
 
