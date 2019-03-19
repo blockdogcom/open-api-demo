@@ -46,3 +46,35 @@ class MyCleos(Cleos):
         {"id":"abcd1234"}
         '''
         return self.post('third.get_transaction', params=None, json={'id': trans_id}, timeout=timeout)
+
+    def third_get_account_transfer(self, account_name=None, code=None, symbol=None, _type=3, _from=None, to=None,
+                                   start_block_num=None, end_block_num=None, start_block_time=None, end_block_time=None,
+                                   sort=1, size=10, page=1):
+        '''
+        POST v1/third/get_account_transfer
+        '''
+        data = {
+            'account_name': account_name,
+            'code': code,
+            'symbol': symbol,
+            'type': _type,
+            'from': _from,
+            'to': to,
+            'start_block_num': start_block_num,
+            'end_block_num': end_block_num,
+            'start_block_time': start_block_time,
+            'end_block_time': end_block_time,
+            'sort': sort,
+            'size': size,
+            'page': page
+        }
+        return self.post('third.get_account_transfer', params=None, json=data, timeout=30)
+
+    def third_get_account_tokens(self, account_name):
+        '''
+        POST v1/third/get_account_tokens
+        '''
+        data = {
+            'account_name': account_name
+        }
+        return self.post('third.get_account_tokens', params=None, json=data, timeout=30)
