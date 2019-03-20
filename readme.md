@@ -1,5 +1,5 @@
-BlockDog open api demo in python
-================================
+BlockDog open api demo in Python3
+=================================
 
 EOS API 简单的场景示例.
 
